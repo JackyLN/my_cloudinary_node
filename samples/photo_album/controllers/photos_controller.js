@@ -42,7 +42,8 @@ function create_through_server(req, res) {
   // Get temp file path
   var imageFile = req.files.image.path;
   // Upload file to Cloudinary
-  cloudinary.uploader.upload(imageFile, { tags: 'express_sample' })
+  cloudinary.uploader.upload(imageFile,
+    { tags: ['express_sample', 'modify_width_height_500'], width: 500, height: 500, crop: "limit"})
     .then(function (image) {
       console.log('** file uploaded to Cloudinary service');
       console.dir(image);
