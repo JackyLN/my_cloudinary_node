@@ -107,3 +107,8 @@ Modify the sample project's gallery to display 2 additional thumbnails per image
   { crop : "scale", height : 150, width : 150 , effect: "saturation:50"}
 ] %>  
 ```
+
+### Final ###
+
+1. Tested.
+2. Those jquery and blueimp-file-upload help to fix the issue on taking care of all different upload methods of the app, server side, signed direct/client-side uploads and unsigned direct/client-side uploads.
