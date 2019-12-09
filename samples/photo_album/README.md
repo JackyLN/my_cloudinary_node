@@ -24,7 +24,14 @@ cd samples/photo_album
 npm install
 node server
 ```
-5. Access the site from http://localhost:9000/
+
+5. Add jQuery and blueimp
+
+```
+npm install jquery blueimp-file-upload
+``` 
+
+6. Access the site from http://localhost:9000/
 
 ### Exercise 2: ###
 
@@ -79,4 +86,24 @@ cloudinary.uploader.upload(imageFile,
   original_filename: '99813-14dvttx.86y7' }
   ```
 
-  
+### Exercise 3: ###
+
+Modify the sample project's gallery to display 2 additional thumbnails per image: 
+- One with the Cloudinary logo as an overlay (watermark). 
+- Second with the image saturation increased to 50%.
+
+1. Upload cloudinary logo image to my own asset (download from sample asset)
+
+  The file is: https://res.cloudinary.com/jackycloudinary/image/upload/v1575885541/cloudinary_icon_vvz0jf.png
+
+2. Modify `/photo_album/views/photos/index.ejs` 
+3. Add two more type of transformation:
+
+```
+<% var transformations = [
+  ...
+  { crop : "scale", height : 150, width : 150 , transformation : {
+    overlay: "cloudinary_icon_vvz0jf", gravity: "south_east", x: 5, y: 5, width: 200, opacity: 60, effect: "brightness:200"} },
+  { crop : "scale", height : 150, width : 150 , effect: "saturation:50"}
+] %>  
+```
